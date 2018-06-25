@@ -23,7 +23,8 @@
 		<group>
 		   <field name="name"/>
 		   <field name='garage_id' invisible='1'/>
-	       <field name="tax_ids" string="service" widget="many2many_tags"/>
+	       <field name="tax_ids" string="service" widget="many2many_tags" options="{'no_open':True,'no_create':True,'no_create_edit':True}"
+	       	/>
 	     
 	     
 		</group>
@@ -47,6 +48,6 @@
 
 	<menuitem id="main_menu_carservice" name="car service" sequence="25" />
 	<menuitem id="sub_menu_carservice" name="car service"  parent="main_menu_carservice" sequence="1"/>
-	<menuitem action="action_tax" id="menu_carservice_module4" parent="sub_menu_carservice" name="Tax" sequence="17"/>
+	<menuitem action="action_tax" id="menu_carservice_module5" parent="sub_menu_carservice" name="Tax" sequence="17"/>
 
 </odoo>

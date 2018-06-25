@@ -13,8 +13,9 @@
 	     <field name='damage'/>
 	     <field name='vehical'/>
 
-		 <field name='parts'/>
-	     <field name="garage_ids" string="garageeeeeeeeeeeeeee" widget="many2many_tags"/>
+		 <field name='parts'  attrs="{'invisible': [('parts','=',True)]}"/>
+	     <field name="garage_ids" string="garageeeeeeeeeeeeeee" widget="many2many_tags" 
+	     	 />
 	     
 	     
 	    </tree>

@@ -11,7 +11,7 @@
     """,
     'website': 'https://www.browseinfo.in',
     'depends': [],
-    'data': ['views/customer_views.xml','views/mech_views.xml','views/parts.xml','views/tax.xml'],
+    'data': ['views/customer_views.xml','views/mech_views.xml','views/parts.xml','views/tax.xml','views/buy_parts.xml'],
     'demo': [],
     'css': [],
     'installable': True,
