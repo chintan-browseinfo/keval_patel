@@ -1,0 +1,76 @@
+<?xml version="1.0"  encoding="utf-8"?>
+<odoo>
+	<record id="view_carmech_module_tree" model="ir.ui.view">
+	   <field name="name">mech.details.tree</field>
+	   <field name="model">mech.details</field>
+	   <field name="priority">1</field>
+	   <field name="arch" type="xml">
+	    <tree string=" garage">
+	     <field name="Mechanic"/>
+	     <field name="name"/>
+	     
+	     
+	     <field name='damage'/>
+	     <field name='vehical'/>
+
+		 <field name='parts'/>
+	     <field name="garage_ids" string="garageeeeeeeeeeeeeee" widget="many2many_tags"/>
+	     
+	     
+	    </tree>
+	   </field>
+        </record> 
+	<record id="view_carmech_module_form" model="ir.ui.view">
+	   <field name="name">mech.details.form</field>
+	   <field name="model">mech.details</field>
+	   <field name="arch" type="xml">
+	    <form string="garage" class="mech_detail">
+	     <sheet>     
+		<group>
+		   <field name="name"/>
+		   <field name="Mechanic"/>
+		   
+		</group>
+		<group>
+		   
+		   <field name='damage'/>
+		   <field name='vehical'/>
+		   
+		</group>
+		<group>
+			<group>
+		   		<field name='parts'/>
+		   	</group>
+		   	<group>
+		   		<field name="garage_ids" widget="many2many_tags"/>
+		   	</group>
+		   
+		</group>
+	     </sheet> 
+	    </form> 
+	   </field> 
+	</record> 
+	<record id="action_mech" model="ir.actions.act_window">
+	  <field name="name">Garage</field>
+	  <field name="type">ir.actions.act_window</field>
+	  <field name="res_model">mech.details</field>
+	  <field name="view_type">form</field>
+	  <field name="view_mode">tree,form,kanban</field>
+	  <field name="help" type="html">
+	   <p class="oe_view_nocontent_create"> </p>
+	   <p></p>
+	  </field>
+	</record>
+
+	
+	<menuitem id="main_menu_carservice" name="car service" sequence="2"/>
+	<menuitem id="sub_menu_carservice" name="car service" sequence="2" parent="main_menu_carservice"/>
+	<menuitem action="action_mech" id="menu_carservice_module1" parent="sub_menu_carservice" name="Garage" sequence="14"/>
+               
+
+
+
+
+
+
+</odoo>

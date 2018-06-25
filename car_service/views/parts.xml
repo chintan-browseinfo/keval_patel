@@ -1,0 +1,49 @@
+<?xml version="1.0"  encoding="utf-8"?>
+<odoo>
+	<record id="view_parts_module_tree" model="ir.ui.view">
+	   <field name="name">parts.add.tree</field>
+	   <field name="model">parts.add</field>
+	   <field name="priority">1</field>
+	   <field name="arch" type="xml">
+	    <tree string=" parts">
+	     <field name="name"/>
+	     <field name='garage_id' invisible='1'/>
+	     
+	     
+	    </tree>
+	   </field>
+        </record> 
+	<record id="view_carparts_module_form" model="ir.ui.view">
+	   <field name="name">parts.add.form</field>
+	   <field name="model">parts.add</field>
+	   <field name="arch" type="xml">
+	    <form string="parts" class="parts_detail">
+	     <sheet>     
+		<group>
+		   <field name="name"/>
+		   <field name='garage_id' invisible='1'/>
+	     
+		</group>
+		
+	     </sheet> 
+	    </form> 
+	   </field> 
+	</record> 
+
+	<record id="action_parts" model="ir.actions.act_window">
+	  <field name="name">Parts</field>
+	  <field name="type">ir.actions.act_window</field>
+	  <field name="res_model">parts.add</field>
+	  <field name="view_type">form</field>
+	  <field name="view_mode">tree,form,kanban</field>
+	  <field name="help" type="html">
+	   <p class="oe_view_nocontent_create"> </p>
+	   <p></p>
+	  </field>
+	</record>
+
+	<menuitem id="main_menu_carservice" name="car service" sequence="25" />
+	<menuitem id="sub_menu_carservice" name="car service"  parent="main_menu_carservice" sequence="1"/>
+	<menuitem action="action_parts" id="menu_carservice_module3" parent="sub_menu_carservice" name="Parts" sequence="20"/>
+
+</odoo>
