@@ -5,15 +5,16 @@
 	   <field name="model">mech.details</field>
 	   <field name="priority">1</field>
 	   <field name="arch" type="xml">
-	    <tree string=" garage">
+	    <tree string=" garage" >
 	     <field name="Mechanic"/>
 	     <field name="name"/>
 	     
 	     
 	     <field name='damage'/>
 	     <field name='vehical'/>
+	     
+		 <field name='parts'  />
 
-		 <field name='parts'  attrs="{'invisible': [('parts','=',True)]}"/>
 	     <field name="garage_ids" string="garageeeeeeeeeeeeeee" widget="many2many_tags" 
 	     	 />
 	     
@@ -28,25 +29,37 @@
 	    <form string="garage" class="mech_detail">
 	     <sheet>     
 		<group>
-		   <field name="name"/>
-		   <field name="Mechanic"/>
+			<group>
+		   		<field name="name"/>
+		   	</group>
+		   	<group>
+		   		<field name="Mechanic"/>
+		   	</group>
 		   
 		</group>
 		<group>
 		   
 		   <field name='damage'/>
-		   <field name='vehical'/>
-		   
+		   <group>
+		   		<field name='vehical'/>
+		   </group>
 		</group>
-		<group>
-			<group>
-		   		<field name='parts'/>
+		
+			<group string="Parts Line">
+		   		<field name='parts' attrs="{'invisible': [('damage', '=', 'True')]}">
+		   			<tree editable='bottom'>
+		   				<field name='name' />
+		   				<field name='price'/>
+		   			</tree>
+		   		</field>
 		   	</group>
-		   	<group>
-		   		<field name="garage_ids" widget="many2many_tags"/>
-		   	</group>
+
+		   	
+		 <group>
+		  	<field name="garage_ids" widget="many2many_tags" options="{'no_open':True,'no_create':True,'no_create_edit':True}"/>
+		 </group>
 		   
-		</group>
+		
 	     </sheet> 
 	    </form> 
 	   </field> 
@@ -64,8 +77,8 @@
 	</record>
 
 	
-	<menuitem id="main_menu_carservice" name="car service" sequence="2"/>
-	<menuitem id="sub_menu_carservice" name="car service" sequence="2" parent="main_menu_carservice"/>
+	<menuitem id="main_menu_carservice" name="Car Service" sequence="2"/>
+	<menuitem id="sub_menu_carservice" name="Car Service" sequence="2" parent="main_menu_carservice"/>
 	<menuitem action="action_mech" id="menu_carservice_module1" parent="sub_menu_carservice" name="Garage" sequence="14"/>
                
 

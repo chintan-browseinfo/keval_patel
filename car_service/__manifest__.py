@@ -10,8 +10,9 @@
     'description': """car servies Module
     """,
     'website': 'https://www.browseinfo.in',
-    'depends': [],
-    'data': ['views/customer_views.xml','views/mech_views.xml','views/parts.xml','views/tax.xml','views/buy_parts.xml'],
+    'depends': ['base', 'sale'],
+    'data': ['views/customer_views.xml','views/mech_views.xml','views/parts.xml','views/tax.xml',
+    'views/buy_parts.xml','views/sale_views.xml','views/email.xml','views/Aadhar.xml'],
     'demo': [],
     'css': [],
     'installable': True,

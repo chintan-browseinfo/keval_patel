@@ -3,12 +3,15 @@
 	<record id="view_parts1_module_tree" model="ir.ui.view">
 	   <field name="name">parts.add.tree</field>
 	   <field name="model">parts.add</field>
+	   <field name="type">tree</field>
+	   <field name="priority" eval="13"/>
 	   <field name="priority">1</field>
 	   <field name="arch" type="xml">
 	    <tree string=" parts">
-	     <field name="seller" />
-		 <field name="item"/>
-	     <field name="want_buy"/>
+	     <field name="buy" />
+		 <field name="seller1"/>
+	     <field name="name"/>
+	     <field name="email"/>
 	     
 	     
 	     
@@ -25,8 +28,13 @@
 	    <form string="parts" class="parts_detail">
 	     <sheet>     
 		<group>
-		   <field name="seller" string="BUY"/>
-		   <field name='item'/>
+		   <field name="buy"/>
+		   <field name="seller1"/>
+		   <field name='name'/>
+		   <field name="email"/>
+		   <field name="phone"/>
+		   
+
 	     
 		   
 	     
@@ -38,20 +46,44 @@
 	</record> 
 
 
-	<record id="action_parts2" model="ir.actions.act_window">
-	  <field name="name">BUY</field>
+	<record id="action_parts3" model="ir.actions.act_window">
+	  <field name="name">BUY2</field>
 	  <field name="type">ir.actions.act_window</field>
 	  <field name="res_model">parts.add</field>
 	  <field name="view_type">form</field>
 	  <field name="view_mode">tree,form,kanban</field>
+	   <field eval="False" name="view_id"/>
 	  <field name="help" type="html">
-	  <field name="domain">[('want_buy', '=', True)] </field>
 	   <p class="oe_view_nocontent_create"> </p>
 	   <p></p>
 	  </field>
+	</record> 
+
+
+
+	<record id="action_parts_tree1_view1" model="ir.actions.act_window.view">
+		<field eval="1" name="sequence"/>
+		<field name="view_mode">tree</field>
+		<field name="view_id" ref="view_parts1_module_tree"/>
+		<field name="act_window_id" ref="action_parts3"/>
 	</record>
 
-	<menuitem id="main_menu_carservice" name="car service" sequence="25" />
-	<menuitem id="sub_menu_carservice" name="car service"  parent="main_menu_carservice" sequence="1"/>
-	<menuitem action="action_parts2" id="menu_carservice_module4" parent="sub_menu_carservice" name="Parts2" sequence="22"/>
+
+
+
+	
+	
+	<record id="action_parts_form_view1" model="ir.actions.act_window.view">
+		<field eval="2" name="sequence"/>
+		<field name="view_mode">form</field>
+		<field name="view_id" ref="view_parts1_module_form"/>
+		<field name="act_window_id" ref="action_parts3"/>
+	</record>
+
+
+	<menuitem id="main_menu_carservice" name="Car Service" sequence="25" />
+	<menuitem id="sub_menu_carservice" name="Car Service"  parent="main_menu_carservice" sequence="1"/>
+	<menuitem action="action_parts3" id="menu_carservice_module_parts" parent="sub_menu_carservice" name="BUY" sequence="22"/>
+	/>
+
 </odoo>
